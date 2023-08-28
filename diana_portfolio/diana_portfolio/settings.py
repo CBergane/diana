@@ -51,7 +51,7 @@ INSTALLED_APPS = [
 
 TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS = [
-    "127.0.0.1",
+    "https://cbergane-diana-ca6g7fbz0ox.ws-eu104.gitpod.io/",
 ]
 
 MIDDLEWARE = [
@@ -137,6 +137,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
@@ -144,9 +145,9 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_URL = '/media/'
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'YOUR_CLOUD_NAME',
-    'API_KEY': 'YOUR_API_KEY',
-    'API_SECRET': 'YOUR_API_SECRET',
+    'CLOUD_NAME': os.environ.get('YOUR_CLOUD_NAME'),
+    'API_KEY': os.environ.get('YOUR_API_KEY'),
+    'API_SECRET': os.environ.get('YOUR_API_SECRET'),
     'SECURE': True,
 }
 

@@ -1,0 +1,161 @@
+/*  */
+
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+/* Collors */
+
+.main-color {
+    color: #030303;
+}
+
+.gray-color {
+    color: #d9d9d9;
+}
+
+.dark-gray-color {
+    color: #737373;
+}
+
+.pink-color {
+    color: #eabedb;
+}
+/* BG */
+
+.main-color-bg {
+    background-color: #030303;
+}
+
+.gray-color-bg {
+    background-color: #d9d9d9;
+}
+
+.dark-gray-color-bg {
+    background-color: #737373;
+}
+
+.pink-color-bg {
+    background-color: #eabedb;
+}
+
+/* Buttons */
+
+.custom-btn {
+    background-color: #d9d9d9;
+}
+
+.custom-btn:hover {
+    background-color: #737373;
+}
+
+/* Nav styling */
+
+
+.nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around; /* Distributes space evenly among the links */
+}
+
+.nav-list li {
+    float: left;
+}
+
+.nav-list li a {
+    position: relative; /* Make sure pseudo-element is positioned relative to the link */
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: all 1.3s; /* Transition will now also affect the pseudo-element */
+}
+
+.nav-list li a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; /* Initially, the width is 0 */
+    height: 2px; /* Height of the border */
+    background-color: #eabedb; /* The color of the border */
+    transition: all 1.3s; /* This ensures the animation effect */
+}
+
+.nav-list li a:hover::before {
+    width: 100%; /* On hover, the width expands to 100% */
+}
+
+/* Hamburger Button Styling */
+#menuToggle {
+    font-size: 1.5rem; /* Adjust as necessary */
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Mobile Nav Styling */
+@media screen and (max-width: 1024px) { /* or another breakpoint like 768px depending on when you want the menu to change */
+    .nav-list {
+        display: block; /* stack them vertically */
+        transform: translateX(-100%); /* start off the screen */
+        transition: transform 1s; /* animation duration */
+        background-color: #030303;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        padding-top: 50px; /* spacing at the top */
+    }
+    .nav-list.active {
+        transform: translateX(0);
+    }
+    .nav-list li {
+        float: none;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    #menuToggle, #menuClose {
+        font-size: 1.5rem; 
+        background: none;
+        border: none;
+        color: white; /* Setting color to white */
+        cursor: pointer;
+    }
+    .bar {
+        display: block;
+        width: 25px; /* Adjust width and height according to your design */
+        height: 3px;
+        margin: 4px 0;
+        background-color: white;
+        transition: all 0.3s;
+    }
+    
+    /* Styling for the hamburger when it's active (i.e., when the menu is opened) */
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+    
+    
+}
