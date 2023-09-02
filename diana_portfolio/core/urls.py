@@ -1,6 +1,9 @@
 from django.urls import path
-from.  import views
+from django.contrib.auth import views
+
+from core.views import front, portfolio
 
 urlpatterns = [
-    path('', views.homepage, name="index"),
+    path('', front, name="index"),
+    path('portfolio/', portfolio, name="portfolio"),
 ]

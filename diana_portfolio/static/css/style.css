@@ -1,4 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,200;1,400&display=swap');
 /*  */
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
 
 body, ul {
     margin: 0;
@@ -56,6 +62,14 @@ body, ul {
 
 /* Nav styling */
 
+nav {
+    position: absolute; /* position it on top of the content */
+    width: 100%;        /* take full width */
+    top: 0;             /* position it at the top */
+    z-index: 1000;      /* make sure it's on top of everything else */
+    transition: background-color 0.3s; /* smooth transition for background-color change */
+    background-color: transparent; /* make initial background transparent */
+}
 
 .nav-list {
     list-style-type: none;
@@ -94,6 +108,7 @@ body, ul {
 .nav-list li a:hover::before {
     width: 100%; /* On hover, the width expands to 100% */
 }
+
 
 /* Hamburger Button Styling */
 #menuToggle {
@@ -158,4 +173,19 @@ body, ul {
     }
     
     
+}
+
+/* Carusel */
+.carousel-inner {
+    position: relative;
+}
+
+.carousel-inner .carousel-item {
+    position: relative;
+}
+
+.carousel-inner img {
+    position: absolute;
+    top: 0;
+    left: 0;
 }

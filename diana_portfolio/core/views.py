@@ -1,5 +1,8 @@
 from django.shortcuts import render
 
 
-def homepage(request):
-    return render(request, 'core/base.html')
+def front(request):
+    return render(request, 'core/front.html')
+
+def portfolio(request):
+    return render(request, 'core/portfolio.html')

@@ -1,0 +1,20 @@
+{% load static %}
+
+<section class="gray-color-bg lg:grid lg:grid-cols-2 pt-[100px] rounded-t-[200px] mt-[60px] items-center"> <!-- Added the items-center class -->
+    <div class="flex-col text-center lg:w-full lg:pt-[50px]">
+        <h2 class="text-5xl underline uppercase underline-offset-8 decoration-1">Introducing</h2>
+        <p class="pt-8 p-16 text-xl">Diana Svensson</p>
+        <p class="px-[100px] pt-10">With a flair for sales since age 5, has journeyed from selling candy in Sweden to mastering Public Relations and Creative Marketing in the U.S., meeting influential figures and leading notable ventures. <br>
+             After pivotal roles in fine art brand marketing, she founded a business serving both startups and established companies, earning various accolades and launching a popular clothing brand.  <br>
+             Complementing her traditional marketing skills with a Digital Marketing Specialist degree, she's poised to craft compelling narratives in this digital age.</p>
+        <div class="hidden lg:block pt-6">
+            <a href="#" class="underline uppercase underline-offset-8">Read more</a>
+        </div>
+        <div class="lg:hidden flex justify-center items-center lg:w-full pt-6"> 
+            <a href="#" class="underline uppercase underline-offset-8">Read more</a>
+        </div>
+    </div>
+    <div class="m-12 pb-6 pt-16">
+        <img class="lg:w-4/5 lg:h-[700px] h-screen object-cover" src="{% static 'images/chapter1.jpeg' %}" alt="">
+    </div>
+</section>
