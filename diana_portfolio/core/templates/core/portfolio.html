@@ -5,9 +5,125 @@
 {% block content%}
 
 <section class="gray-color-bg">
-    <h1>My Portfolio</h1>
-    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit repudiandae autem dolorum iste provident inventore debitis eveniet quaerat, ipsam, modi assumenda dolore voluptatibus amet, tempora quis illo dolores voluptates sunt?</div>
+    <div class="pt-16">
+        <h1 class="text-center text-3xl uppercase underline underline-offset-8 dark-gray-color">My Portfolio</h1>
+        <div class="lg:p-[150px] pt-[150px]">
+            <div class="grid lg:grid-cols-3 grid-cols-1 gap-[60px] lg:gap-y-[250px] lg:gap-x-11 my-8">
+
+                <div class="card transform transition-transform duration-500 overflow-hidden gray-color-bg" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="relative hover:scale-110 transition duration-500">
+                        <img class="w-full h-60 object-center" src="{% static 'images/1.jpg' %}" alt="Description">
+                        <div class="absolute top-0 left-0 w-full h-48 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span class="dark-gray-color">Short explanation of the image</span>
+                        </div>
+                    </div>
+                    <p class="text-center pt-10 uppercase">
+                        Caption to image
+                    </p>
+                </div>
+                <div class="card transform transition-transform duration-500 overflow-hidden gray-color-bg" data-aos="fade-down" data-aos-duration="1000">
+                    <div class="relative hover:scale-110 transition duration-500">
+                        <img class="w-full h-60 object-center" src="{% static 'images/2.jpg' %}" alt="Description">
+                        <div class="absolute top-0 left-0 w-full h-48 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span>Short explanation of the image</span>
+                        </div>
+                    </div>
+                    <p class="text-center pt-10 uppercase">
+                        Caption to image
+                    </p>
+                </div>
+                <div class="card transform transition-transform duration-500 overflow-hidden gray-color-bg" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="relative hover:scale-110 transition duration-500">
+                        <img class="w-full h-60 object-center" src="{% static 'images/3.jpg' %}" alt="Description">
+                        <div class="absolute top-0 left-0 w-full h-48 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span>Short explanation of the image</span>
+                        </div>
+                    </div>
+                    <p class="text-center pt-10 uppercase">
+                        Caption to image
+                    </p>
+                </div>
+                <div class="card transform transition-transform duration-500 overflow-hidden gray-color-bg" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="relative hover:scale-110 transition duration-500">
+                        <img class="w-full h-60 object-center" src="{% static 'images/1.jpg' %}" alt="Description">
+                        <div class="absolute top-0 left-0 w-full h-48 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span>Short explanation of the image</span>
+                        </div>
+                    </div>
+                    <p class="text-center pt-10 uppercase">
+                        Caption to image
+                    </p>
+                </div>
+                <div class="card transform transition-transform duration-500 overflow-hidden gray-color-bg" data-aos="fade-down" data-aos-duration="1000">
+                    <div class="relative hover:scale-110 transition duration-500">
+                        <img class="w-full h-60 object-center" src="{% static 'images/2.jpg' %}" alt="Description">
+                        <div class="absolute top-0 left-0 w-full h-48 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span>Short explanation of the image</span>
+                        </div>
+                    </div>
+                    <p class="text-center pt-10 uppercase">
+                        Caption to image
+                    </p>
+                </div>                
+                <div class="card transform transition-transform duration-500 overflow-hidden gray-color-bg" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="relative hover:scale-110 transition duration-500">
+                        <img class="w-full h-60 object-center" src="{% static 'images/3.jpg' %}" alt="Description">
+                        <div class="absolute top-0 left-0 w-full h-48 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span>Short explanation of the image</span>
+                        </div>
+                    </div>
+                    <p class="text-center pt-10 uppercase">
+                        Caption to image
+                    </p>
+                </div>
+                <div class="card transform transition-transform duration-500 overflow-hidden gray-color-bg" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="relative hover:scale-110 transition duration-500">
+                        <img class="w-full h-60 object-center" src="{% static 'images/1.jpg' %}" alt="Description">
+                        <div class="absolute top-0 left-0 w-full h-48 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span>Short explanation of the image</span>
+                        </div>
+                    </div>
+                    <p class="text-center pt-10 uppercase">
+                        Caption to image
+                    </p>
+                </div>
+                <div class="card transform transition-transform duration-500 overflow-hidden gray-color-bg" data-aos="fade-down" data-aos-duration="1000">
+                    <div class="relative hover:scale-110 transition duration-500">
+                        <img class="w-full h-60 object-center" src="{% static 'images/2.jpg' %}" alt="Description">
+                        <div class="absolute top-0 left-0 w-full h-48 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span>Short explanation of the image</span>
+                        </div>
+                    </div>
+                    <p class="text-center pt-10 uppercase">
+                        Caption to image
+                    </p>
+                </div>
+                <div class="card transform transition-transform duration-500 overflow-hidden gray-color-bg" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="relative hover:scale-110 transition duration-500">
+                        <img class="w-full h-60 object-center" src="{% static 'images/3.jpg' %}" alt="Description">
+                        <div class="absolute top-0 left-0 w-full h-48 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span>Short explanation of the image</span>
+                        </div>
+                    </div>
+                    <p class="text-center pt-10 uppercase">
+                        Caption to image
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
+
+<script>
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('mouseover', function() {
+            this.setAttribute('data-aos', 'none');
+        });
+    });
+
+</script>
+
+
 
 
 {% endblock %}

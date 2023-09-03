@@ -6,3 +6,6 @@ def front(request):
 
 def portfolio(request):
     return render(request, 'core/portfolio.html')
+
+def biography(request):
+    return render(request, 'core/biography.html')
