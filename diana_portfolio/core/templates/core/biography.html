@@ -4,6 +4,49 @@
 {% block title %}Biography{% endblock %}
 {% block content%}
 
-<h1>hello</h1>
+<!-- Biography Section -->
+<div class="dark-gray-color-bg p-10">
+    <!-- First Set - Image and Text -->
+    <div class="flex flex-col md:flex-row items-center justify-between mb-10 p-16">
+
+        <!-- Image with slide-up effect -->
+        <div class="w-full md:w-1/2 mb-8 md:mb-0" data-aos="fade-right" data-aos-duration="1000">
+            <img src="{% static 'images/chapter1.jpeg' %}" alt="Biography Image" class="w-full h-auto">
+        </div>
+
+        <!-- Biography Text with slide-left effect -->
+        <div class="w-full md:w-1/2 p-6" data-aos="fade-left" data-aos-duration="1000">
+            <h1 class="text-2xl mb-4 underline-pink">Biography Title</h1>
+            <p class="p-16">
+                This is the biography content. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci, quis.
+            </p>
+        </div>
+    </div>
+
+    <!-- Second Set - Image and Text -->
+    <div class="flex flex-col md:flex-row items-center justify-between">
+
+        <!-- Biography Text with slide-left effect -->
+        <div class="w-full md:w-1/2" data-aos="fade-right" data-aos-duration="1000">
+            <h1 class="text-2xl mb-4 underline-pink">Biography Title</h1>
+            <p class="p-16">
+                This is the biography content. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci, quis.
+            </p>
+        </div>
+            <!-- Image with slide-up effect -->
+            <div class="w-full md:w-1/2 mb-8 md:mb-0" data-aos="fade-left" data-aos-duration="1000">
+                <img src="{% static 'images/chapter1.jpeg' %}" alt="Biography Image" class="w-full h-auto">
+            </div>
+    </div>
+</div>
+
+<!-- AOS initialization -->
+<script>
+    AOS.init({
+        duration: 1000
+    });
+</script>
+
+
 
 {% endblock %}

@@ -2,9 +2,20 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+        <!-- Googlefonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;1,400&display=swap" rel="stylesheet">
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- Swiper -->
+        <!-- Swiper CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+        <!-- Swiper JS -->
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <!-- tailwind ccs -->
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -29,7 +40,7 @@
         <ul id="menu" class="nav-list top-0 left-0 h-full w-full main-color-bg0 text-white transform -translate-x-full invisible overflow-y-auto transition-transform duration-500 lg:static lg:w-auto lg:transform-none lg:bg-transparent lg:flex lg:flex-row z-40 lg:visible">
             <li class="py-2 text-center lg:py-0"><a href="{% url 'index' %}">HOME</a></li>
             <li class="py-2 text-center lg:py-0"><a href="{% url 'biography' %}">BIOGRAPHY</a></li>
-            <li class="py-2 text-center lg:py-0"><a href="#">SERVICES</a></li>
+            <li class="py-2 text-center lg:py-0"><a href="{% url 'services' %}">SERVICES</a></li>
             <li class="py-2 text-center lg:py-0"><a href="{% url 'portfolio' %}">PORTFOLIO</a></li>
             <li class="py-2 text-center lg:py-0"><a href="#">TESTIMONIALS</a></li>
             <li class="py-2 text-center lg:py-0"><a href="#">CLIENTS/PARTNERS</a></li>
@@ -39,41 +50,42 @@
 
         <main class="flex-grow lg:mt-[75px]">
             {% block content %}
+
             {% endblock %}
         </main>
 
-        <footer class="main-color-bg">
-            <div class="lg:flex p-6 justify-around">
-                <div class="lg:w-1/4 gray-color">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur odit quaerat explicabo tempore quas placeat harum! Repudiandae unde numquam sapiente atque perspiciatis deserunt natus non, est esse maxime mollitia tempore.</div>
-                <div class="lg:w-1/4 gray-color uppercase">Follow
-                    <div class="p-6 space-y-6 mt-6">
-                        <div class="gray-color underline underline-offset-8">
-                            <a href="#" class="transition-all duration-500 hover:text-pink-200">
-                                Facebook
-                            </a>
-                        </div>
-                        <div class="gray-color underline underline-offset-8">
-                            <a href="#" class="transition-all duration-500 hover:text-pink-200">
-                                Instagram
-                            </a>
-                        </div>
-                        <div class="gray-color underline underline-offset-8">
-                            <a href="#" class="transition-all duration-500 hover:text-pink-200">
-                                Linkedin
-                            </a>
-                        </div>
+    <footer class="main-color-bg">
+        <div class="lg:flex p-6 justify-around">
+            <div class="lg:w-1/4 gray-color">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur odit quaerat explicabo tempore quas placeat harum! Repudiandae unde numquam sapiente atque perspiciatis deserunt natus non, est esse maxime mollitia tempore.</div>
+            <div class="lg:w-1/4 gray-color uppercase">Follow
+                <div class="p-6 space-y-6 mt-6">
+                    <div class="gray-color underline underline-offset-8">
+                        <a href="#" class="transition-all duration-500 hover:text-pink-200">
+                            Facebook
+                        </a>
                     </div>
-                </div>
-                <div class="lg:w-2/4 gray-color pl-6">Where can you find me?
-                    <div class="p-4">
-                        <div class="gray-color">Address:</div>
-                        <div class="gray-color">Address:</div>
-                        <div class="gray-color underline uppercase pt-10 ml-4">email@mail.com</div>
+                    <div class="gray-color underline underline-offset-8">
+                        <a href="#" class="transition-all duration-500 hover:text-pink-200">
+                            Instagram
+                        </a>
+                    </div>
+                    <div class="gray-color underline underline-offset-8">
+                        <a href="#" class="transition-all duration-500 hover:text-pink-200">
+                            Linkedin
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="gray-color border-t m-6 p-4">Copywrite</div>
-        </footer>
+            <div class="lg:w-2/4 gray-color pl-6">Where can you find me?
+                <div class="p-4">
+                    <div class="gray-color">Address:</div>
+                    <div class="gray-color">Address:</div>
+                    <div class="gray-color underline uppercase pt-10 ml-4">email@mail.com</div>
+                </div>
+            </div>
+        </div>
+        <div class="gray-color border-t m-6 p-4">Copywrite</div>
+    </footer>
 
         <script src="{% static 'js/carousel_script.js' %}"></script>
         <script src="https://unpkg.com/htmx.org@1.9.4" integrity="sha384-zUfuhFKKZCbHTY6aRR46gxiqszMk5tcHjsVFxnUo8VMus4kHGVdIYVbOYYNlKmHV" crossorigin="anonymous"></script>
@@ -108,6 +120,29 @@
                 AOS.init();
             });
         </script>
-        
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const swiper = new Swiper('.swiper-container', {
+                        // Optional parameters
+                        direction: 'horizontal',
+                        loop: true,
+                        autoplay: {
+                            delay: 5000, //5 seconds
+                        },
+
+                        // If you need pagination
+                        pagination: {
+                            el: '.swiper-pagination',
+                            clickable: true,
+                        },
+
+                        // Navigation arrows
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                    });
+                });
+        </script>
 </body>
 </html>

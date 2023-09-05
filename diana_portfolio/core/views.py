@@ -9,3 +9,6 @@ def portfolio(request):
 
 def biography(request):
     return render(request, 'core/biography.html')
+
+def services(request):
+    return render(request, 'core/services.html')

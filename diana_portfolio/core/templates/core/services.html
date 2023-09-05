@@ -1,0 +1,113 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Services{% endblock %}
+{% block content%}
+
+<section>
+    <div class="services-section mt-8">
+        <!-- Tabs -->
+        <ul class="tabs">
+            <li class="tab" data-tab="service1">Service 1</li>
+            <li class="tab" data-tab="service2">Service 2</li>
+            <li class="tab" data-tab="service3">Service 3</li>
+        </ul>
+    
+        <!-- Service Contents -->
+        <div class="flex items-center justify-center pt-6 px-5">
+            <div class="tab-content grid grid-cols-2 gap-4" id="service1">
+                <div class="text-center">
+                    <h2 class="uppercase underline-pink">Title in here</h2>
+                    <p>A discription on what it is and why you need it.</p>
+                </div>
+                <div class="w-[300px]">
+                    <img src="{% static 'images/chapter1.jpeg' %}" alt="">
+                </div>
+                <div class="text-center">
+                    <h2 class="underline-pink">How it works</h2>
+                    <p>Description</p>
+                </div>
+                <div class="">
+                    <h2 class="uppercase underline-pink">What you will get</h2>
+                    <p>Description in here
+                        <ul class="list-disc pl-8">
+                            <li>Thing</li>
+                            <li>Thing</li>
+                            <li>Thing</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+            <div class="tab-content grid grid-cols-2 gap-4" id="service2">
+                <div class="text-center">
+                    <h2 class="uppercase underline-pink">Title in here</h2>
+                    <p>A discription on what it is and why you need it.</p>
+                </div>
+                <div class="w-[300px]">
+                    <img src="{% static 'images/chapter1.jpeg' %}" alt="">
+                </div>
+                <div class="text-center">
+                    <h2 class="underline-pink">How it works</h2>
+                    <p>Description</p>
+                </div>
+                <div class="">
+                    <h2 class="uppercase underline-pink">What you will get</h2>
+                    <p>Description in here
+                        <ul class="list-disc pl-8">
+                            <li>Thing</li>
+                            <li>Thing</li>
+                            <li>Thing</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+            <div class="tab-content grid grid-cols-2 gap-4" id="service3">
+                <div class="text-center">
+                    <h2 class="uppercase underline-pink">Title in here</h2>
+                    <p>A discription on what it is and why you need it.</p>
+                </div>
+                <div class="w-[300px]">
+                    <img src="{% static 'images/chapter1.jpeg' %}" alt="">
+                </div>
+                <div class="text-center">
+                    <h2 class="underline-pink">How it works</h2>
+                    <p>Description</p>
+                </div>
+                <div class="">
+                    <h2 class="uppercase underline-pink">What you will get</h2>
+                    <p>Description in here
+                        <ul class="list-disc pl-8">
+                            <li>Thing</li>
+                            <li>Thing</li>
+                            <li>Thing</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Hide all contents and remove active class from tabs
+            contents.forEach(content => content.style.display = 'none');
+            tabs.forEach(t => t.classList.remove('active'));
+
+            // Show the selected content
+            const selectedContent = document.getElementById(tab.getAttribute('data-tab'));
+            selectedContent.style.display = 'grid'; 
+
+            // Add active class to the clicked tab
+            tab.classList.add('active');
+        });
+    });
+});
+
+
+</script>
+{% endblock %}

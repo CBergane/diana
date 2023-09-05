@@ -1,11 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,200;1,400&display=swap');
-/*  */
-
-body {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-}
-
 
 body, ul {
     margin: 0;
@@ -14,6 +6,7 @@ body, ul {
 
 *, *:before, *:after {
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Collors */
@@ -190,4 +183,73 @@ nav {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+/* Swiper */
+
+.swiper-pagination {
+    position: relative;
+    text-align: center;
+    transition: .3s opacity;
+    transform: translate3d(0,0,0);
+    z-index: 10;
+}
+.swiper-pagination-bullets .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 100%;
+    background: #000; /* or another color */
+}
+
+/* Biography */
+.underline-pink {
+    display: inline-block;
+    position: relative;
+}
+
+.underline-pink:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #eabedb !important;
+    margin-top: 4px;  /* Adjust as needed */
+}
+
+/* Tabs service page */
+
+/* Tabs service page */
+
+.tabs {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.tab {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #eabedb; /* pink-color-bg */
+    transition: background-color 0.3s ease;
+    margin-right: 5px;  /* Adjust this value as needed. */
+}
+
+.tab:last-child {
+    margin-right: 0; /* This ensures that the last tab doesn't have a margin on its right */
+}
+
+.tab:hover {
+    background-color: #d99ac5; /* darker shade for hover */
+}
+
+.tab-content {
+    display: none;
+    /* Other styling as required */
+}
+
+.tab-content.active {
+    display: block;
+    position: relative;
 }
