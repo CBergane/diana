@@ -42,8 +42,8 @@
             <li class="py-2 text-center lg:py-0"><a href="{% url 'biography' %}">BIOGRAPHY</a></li>
             <li class="py-2 text-center lg:py-0"><a href="{% url 'services' %}">SERVICES</a></li>
             <li class="py-2 text-center lg:py-0"><a href="{% url 'portfolio' %}">PORTFOLIO</a></li>
-            <li class="py-2 text-center lg:py-0"><a href="#">TESTIMONIALS</a></li>
-            <li class="py-2 text-center lg:py-0"><a href="#">CLIENTS/PARTNERS</a></li>
+            <li class="py-2 text-center lg:py-0"><a href="{% url 'index' %}#testimonials-section">TESTIMONIALS</a></li>
+            <li class="py-2 text-center lg:py-0"><a href="{% url 'clients' %}">CLIENTS/PARTNERS</a></li>
             <li class="py-2 text-center lg:py-0"><a href="#">CONTACT</a></li>
         </ul>
     </nav>
@@ -117,32 +117,34 @@
         </script>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
-                AOS.init();
+                // Initialize AOS
+                AOS.init({
+                    once: false,
+                });
+        
+                // Initialize Swiper
+                const swiper = new Swiper('.swiper-container', {
+                    // Optional parameters
+                    direction: 'horizontal',
+                    loop: true,
+                    autoplay: {
+                        delay: 5000, //5 seconds
+                    },
+        
+                    // If you need pagination
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+        
+                    // Navigation arrows
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
             });
         </script>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                const swiper = new Swiper('.swiper-container', {
-                        // Optional parameters
-                        direction: 'horizontal',
-                        loop: true,
-                        autoplay: {
-                            delay: 5000, //5 seconds
-                        },
-
-                        // If you need pagination
-                        pagination: {
-                            el: '.swiper-pagination',
-                            clickable: true,
-                        },
-
-                        // Navigation arrows
-                        navigation: {
-                            nextEl: '.swiper-button-next',
-                            prevEl: '.swiper-button-prev',
-                        },
-                    });
-                });
-        </script>
+        
 </body>
 </html>

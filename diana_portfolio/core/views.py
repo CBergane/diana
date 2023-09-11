@@ -12,3 +12,6 @@ def biography(request):
 
 def services(request):
     return render(request, 'core/services.html')
+
+def clients(request):
+    return render(request, 'core/clients.html')
