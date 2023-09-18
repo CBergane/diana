@@ -219,17 +219,18 @@ nav {
 
 /* Tabs service page */
 
-/* Tabs service page */
-
 .tabs {
     list-style-type: none;
     padding: 0;
     display: flex;
     justify-content: center;
+    align-items: stretch;
 }
 
 .tab {
     cursor: pointer;
+    display: flex;
+    align-items: center;
     padding: 10px 20px;
     background-color: #eabedb; /* pink-color-bg */
     transition: background-color 0.3s ease;
@@ -254,5 +255,21 @@ nav {
     position: relative;
 }
 
-/* Clients */
+/* Contact */
 
+#contactModal {
+    opacity: 0; /* Initially hidden */
+    transform: translateY(-100%);
+    transition: opacity 0.7s, transform 0.7s ease-out; /* Added opacity transition */
+    pointer-events: none; /* Ensures it's not clickable when invisible */
+}
+
+#contactModal.show {
+    opacity: 1; /* Fully visible when .show class is added */
+    transform: translateY(0);
+    pointer-events: auto; /* Makes it clickable when visible */
+}
+
+#contactModal > div {
+    max-width: 600px;
+}

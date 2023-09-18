@@ -4,9 +4,9 @@
 {% block title %}Clients/Partners{% endblock %}
 {% block content%}
 
-<section class="clients-partners min-h-screen flex items-center justify-center py-8">
+<section class="clients-partners min-h-screen flex flex-col md:flex-row items-center justify-center py-8">
     <!-- Aside to display client information -->
-    <aside class="client-info w-full md:w-1/4 p-4 bg-white shadow-lg rounded-md mr-4">
+    <aside class="client-info w-full md:w-1/4 p-4 bg-white shadow-lg sm:pt-16 rounded-md mb-4 md:mb-0 md:mr-4">
         <h2 class="text-2xl mb-4 text-center" id="client-name">Client 1 Name</h2>
         <div class="client-description mb-4">
             <p id="client-description">Description for Client 1...</p>
@@ -33,6 +33,7 @@
         </div>
     </article>
 </section>
+
 <script>
     let currentClientIndex = 0;
     const carouselItems = document.querySelectorAll('.carousel-item');
