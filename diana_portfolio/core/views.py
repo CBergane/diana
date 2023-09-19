@@ -15,10 +15,14 @@ def portfolio(request):
     return render(request, 'core/portfolio.html', {'portfolios': portfolios})
 
 def biography(request):
-    # Fetch the biography entry, assuming you have only one.
-    # If there's no entry, it defaults to None.
-    biography_entry = Biography.objects.first()
-    return render(request, 'core/biography.html', {'biography': biography_entry})
+    # Fetch the two biography entries.
+    biography_entry_1 = Biography.objects.first()
+    biography_entry_2 = Biography.objects.last()
+    return render(request, 'core/biography.html', {
+        'biography_1': biography_entry_1,
+        'biography_2': biography_entry_2
+    })
+
 
 def services(request):
     # Fetch all services
@@ -28,8 +32,8 @@ def services(request):
 def clients(request):
     # Fetch all testimonials and client-partners
     testimonials = Testimonial.objects.all()
-    client_partners = ClientPartner.objects.all()
-    return render(request, 'core/clients.html', {'testimonials': testimonials, 'client_partners': client_partners})
+    clients = ClientPartner.objects.all()
+    return render(request, 'core/clients.html', {'testimonials': testimonials, 'clients': clients})
 
 def send_contact_email(request):
     if request.method == 'POST':

@@ -25,29 +25,27 @@
 	</head>
 
     <body class="flex flex-col min-h-screen leading-normal tracking-normal">
-    <nav class="main-color-bg p-6 sticky -mb-20">
-        <div class="max-w-6xl mx-auto py-2 px-6 xl:px-0 items-center flex justify-between">
-            <div class="flex-grow"></div> <!-- This empty div will push the menu to the far right -->
-            <button id="menuToggle" class="hamburger lg:hidden px-2 py-1 z-50">
-
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            
-        </div>
-        <!-- Navigation Menu -->
-        <ul id="menu" class="nav-list top-0 left-0 h-full w-full main-color-bg0 text-white transform -translate-x-full invisible overflow-y-auto transition-transform duration-500 lg:static lg:w-auto lg:transform-none lg:bg-transparent lg:flex lg:flex-row z-40 lg:visible">
-            <li class="py-2 text-center lg:py-0"><a href="{% url 'index' %}">HOME</a></li>
-            <li class="py-2 text-center lg:py-0"><a href="{% url 'biography' %}">BIOGRAPHY</a></li>
-            <li class="py-2 text-center lg:py-0"><a href="{% url 'services' %}">SERVICES</a></li>
-            <li class="py-2 text-center lg:py-0"><a href="{% url 'portfolio' %}">PORTFOLIO</a></li>
-            <li class="py-2 text-center lg:py-0"><a href="{% url 'index' %}#testimonials-section">TESTIMONIALS</a></li>
-            <li class="py-2 text-center lg:py-0"><a href="{% url 'clients' %}">CLIENTS/PARTNERS</a></li>
-            <li class="py-2 text-center lg:py-0"><a href="#" id="contactLink">Contact</a>
-            </li>
-        </ul>
-    </nav>
+        <nav class="main-color-bg p-6 sticky -mb-20">
+            <div class="max-w-6xl mx-auto py-2 px-6 xl:px-0 items-center flex justify-between">
+                <div class="flex-grow"></div> <!-- This empty div will push the menu to the far right -->
+                <button id="menuToggle" class="hamburger lg:hidden px-2 py-1 z-50">
+    
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                
+            </div>
+            <ul id="menu" class="nav-list top-0 left-0 h-full w-full main-color-bg0 text-white transform -translate-x-full invisible overflow-y-auto transition-transform duration-500 lg:static lg:w-auto lg:transform-none lg:bg-transparent lg:flex lg:flex-row z-40 lg:visible">
+                <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'index' %}" {% if request.resolver_match.url_name == 'index' %}class="active"{% endif %}>HOME</a></li>
+                <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'biography' %}" {% if request.resolver_match.url_name == 'biography' %}class="active"{% endif %}>BIOGRAPHY</a></li>
+                <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'services' %}" {% if request.resolver_match.url_name == 'services' %}class="active"{% endif %}>SERVICES</a></li>
+                <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'portfolio' %}" {% if request.resolver_match.url_name == 'portfolio' %}class="active"{% endif %}>PORTFOLIO</a></li>
+                <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'index' %}#testimonials-section">TESTIMONIALS</a></li>
+                <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'clients' %}" {% if request.resolver_match.url_name == 'clients' %}class="active"{% endif %}>CLIENTS/PARTNERS</a></li>
+                <li class="py-2 text-center lg:py-0 uppercase"><a href="#" id="contactLink">Contact</a></li>
+            </ul>
+        </nav>
 
         <main class="flex-grow lg:mt-[75px]">
             {% block content %}
@@ -192,16 +190,19 @@
             contactLink.addEventListener('click', function(event) {
                 event.preventDefault();
 
-                // Check if menu is visible and if yes, then toggle it off.
-                var menu = document.getElementById('menu');
-                if (!menu.classList.contains('invisible')) {
-                    toggleMenu();
+                // Only toggle the menu on mobile screens
+                if (window.innerWidth <= 768) {
+                    var menu = document.getElementById('menu');
+                    if (!menu.classList.contains('invisible')) {
+                        toggleMenu();
+                    }
                 }
 
                 contactModal.style.opacity = "1";
                 contactModal.style.transform = "translateY(0)";
                 contactModal.style.pointerEvents = "auto";
             });
+
 
             closeModal.addEventListener('click', function() {
                 contactModal.style.opacity = "0";

@@ -4,69 +4,25 @@
 {% block title %}Clients/Partners{% endblock %}
 {% block content%}
 
-<section class="clients-partners min-h-screen flex flex-col md:flex-row items-center justify-center py-8">
-    <!-- Aside to display client information -->
-    <aside class="client-info w-full md:w-1/4 p-4 bg-white shadow-lg sm:pt-16 rounded-md mb-4 md:mb-0 md:mr-4">
-        <h2 class="text-2xl mb-4 text-center" id="client-name">Client 1 Name</h2>
-        <div class="client-description mb-4">
-            <p id="client-description">Description for Client 1...</p>
+<section class="clients-partners min-h-screen py-8">
+    <div class="container mx-auto px-4">
+        <h2 class="text-2xl mb-8 text-center">Our Clients and Partners</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {% for client in clients %}
+            <div class="client-item text-center">
+                <div class="client-image">
+                    <!-- Display the client's logo -->
+                    <img src="{{ client.image.url }}" alt="{{ client.name }}" class="mx-auto mb-4 max-h-24 w-auto">
+                </div>
+                <div class="client-name">
+                    <!-- Display the client's name -->
+                    <p>{{ client.name }}</p>
+                </div>
+            </div>
+            {% endfor %}
         </div>
-        <div class="client-links text-center">
-            <a href="#" id="client-website" class="text-blue-500 underline">Client Website</a>
-        </div>
-    </aside>
-
-    <!-- Carousel to scroll through client images -->
-    <article class="client-carousel relative w-full md:w-1/2 p-4 md:h-3/4 min-h-[60vh]">
-        <div class="carousel-container absolute w-full h-full" id="carousel-container">
-            <!-- Each div here represents a client/partner -->
-            <div class="carousel-item absolute w-full h-full bg-cover bg-center" data-client-name="Client 1 Name" data-client-description="Description for Client 1..." style="background-image: url({% static 'images/1.jpg' %});">
-            </div>
-            <div class="carousel-item absolute w-full h-full bg-cover bg-center" data-client-name="Client 2 Name" data-client-description="Description for Client 2..." style="background-image: url({% static 'images/2.jpg' %});">
-            </div>
-            <div class="carousel-item absolute w-full h-full bg-cover bg-center" data-client-name="Client 2 Name" data-client-description="Description for Client 2..." style="background-image: url({% static 'images/3.jpg' %});">
-            </div>
-            <div class="carousel-item absolute w-full h-full bg-cover bg-center" data-client-name="Client 2 Name" data-client-description="Description for Client 2..." style="background-image: url({% static 'images/1.jpg' %});">
-            </div>
-            <!-- ... -->
-            <!-- Add more clients as you like -->
-        </div>
-    </article>
+    </div>
 </section>
 
-<script>
-    let currentClientIndex = 0;
-    const carouselItems = document.querySelectorAll('.carousel-item');
-
-    function switchClient() {
-        // Hide all clients
-        carouselItems.forEach(item => {
-            item.style.opacity = '0';
-            item.style.zIndex = '0';
-        });
-
-        // Show the current client
-        carouselItems[currentClientIndex].style.opacity = '1';
-        carouselItems[currentClientIndex].style.zIndex = '1';
-
-        const clientName = carouselItems[currentClientIndex].getAttribute('data-client-name');
-        const clientDescription = carouselItems[currentClientIndex].getAttribute('data-client-description');
-
-        // Update the aside content
-        document.getElementById('client-name').innerText = clientName;
-        document.getElementById('client-description').innerText = clientDescription;
-        document.getElementById('client-website').innerText = `${clientName} Website`;
-
-        // Move to the next client or loop back to the first
-        currentClientIndex = (currentClientIndex + 1) % carouselItems.length;
-    }
-
-    // Initially display the first client
-    switchClient();
-
-    // Automatically switch client every 10 seconds
-    setInterval(switchClient, 10000);
-</script>
-
 {% endblock %}
-

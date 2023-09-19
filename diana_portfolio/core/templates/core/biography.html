@@ -7,19 +7,19 @@
 <div class="dark-gray-color-bg md:p-10">
     <!-- First Set - Image and Text -->
     <div class="flex justify-center">
-        <h2 class="text-2xl mb-4 underline-pink pt-10 text-center">My Biography</h2>
+        <h2 class="text-2xl mb-4 underline-pink pt-20 text-center">My Biography</h2>
     </div>
-    <div class="flex flex-col md:flex-row items-center justify-between mb-10 md:p-16 pt-24">
+    <div class="flex flex-col md:flex-row items-center justify-between mb-10 md:p-16 ">
         <!-- Image with slide-up effect -->
         <div class="w-full md:w-1/2 mb-8 md:mb-0 order-1 md:order-none" data-aos="zoom-in-down" data-aos-duration="1000">
-            <img src="{% static 'images/chapter1.jpeg' %}" alt="Biography Image" class="w-full h-auto">
+            <img src="{{ biography_1.image.url }}" alt="Biography Image" class="w-full md:w-3/4 lg:w-2/3 h-auto">
         </div>
 
         <!-- Biography Text with slide-left effect -->
         <div class="w-full md:w-1/2 md:p-6 p-0 order-2 md:order-none" data-aos="zoom-in-down" data-aos-duration="1000">
             <h1 class="text-2xl mb-4 underline-pink">Biography Title</h1>
             <p class="p-0 md:p-16">
-                This is the biography content. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci, quis.
+                {{ biography_1.content|safe }}
             </p>
         </div>
     </div>
@@ -33,12 +33,12 @@
         <div class="w-full md:w-1/2 md:p-6 p-0 order-4 md:order-none" data-aos="zoom-in-down" data-aos-duration="1000">
             <h1 class="text-2xl mb-4 underline-pink">Biography Title</h1>
             <p class="p-0 md:p-16">
-                This is the biography content. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci, quis.
+                {{ biography_2.content|safe }}
             </p>
         </div>
                 <!-- Image with slide-up effect -->
         <div class="w-full md:w-1/2 mb-8 md:mb-0 order-3 md:order-none" data-aos="zoom-in-down" data-aos-duration="1000">
-            <img src="{% static 'images/chapter1.jpeg' %}" alt="Biography Image" class="w-full h-auto">
+            <img src="{{ biography_2.image.url }}" alt="Biography Image" class="w-full h-auto">
         </div>
     </div>
 </div>

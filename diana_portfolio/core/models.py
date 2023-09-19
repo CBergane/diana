@@ -1,8 +1,9 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
+from ckeditor.fields import RichTextField
 
 class Biography(models.Model):
-    content = models.TextField()
+    content = RichTextField()
     image = CloudinaryField('image')
 
     def __str__(self):
@@ -10,7 +11,7 @@ class Biography(models.Model):
 
 class Service(models.Model):
     name = models.CharField(max_length=255)
-    description = models.TextField()
+    description = RichTextField(default="Default description")
     image = CloudinaryField('image')
 
     def __str__(self):
@@ -18,7 +19,7 @@ class Service(models.Model):
 
 class Portfolio(models.Model):
     title = models.CharField(max_length=255)
-    description = models.TextField()
+    description = RichTextField(default="Default description")
     image = CloudinaryField('image')
     date = models.DateField()
 
@@ -27,7 +28,7 @@ class Portfolio(models.Model):
 
 class Testimonial(models.Model):
     client_name = models.CharField(max_length=255)
-    content = models.TextField()
+    description = RichTextField(default="Default description")
     date = models.DateField()
 
     def __str__(self):
@@ -35,8 +36,9 @@ class Testimonial(models.Model):
 
 class ClientPartner(models.Model):
     name = models.CharField(max_length=255)
-    description = models.TextField(blank=True, null=True)  # Optional description
+    description = RichTextField(default="Default description")
     image = CloudinaryField('image')
 
     def __str__(self):
         return self.name
+    

@@ -19,7 +19,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-center pt-10 uppercase">
+                    <p class="text-center pt-10 uppercase" data-title="Project Title" data-description="Detailed description of the project">
                         Caption to image
                     </p>
                 </div>
@@ -33,7 +33,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-center pt-10 uppercase">
+                    <p class="text-center pt-10 uppercase" data-title="Project Title" data-description="Detailed description of the project">
                         Caption to image
                     </p>
                 </div>
@@ -47,7 +47,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-center pt-10 uppercase">
+                    <p class="text-center pt-10 uppercase" data-title="Project Title" data-description="Detailed description of the project">
                         Caption to image
                     </p>
                 </div>
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-center pt-10 uppercase">
+                    <p class="text-center pt-10 uppercase" data-title="Project Title" data-description="Detailed description of the project">
                         Caption to image
                     </p>
                 </div>
@@ -75,7 +75,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-center pt-10 uppercase">
+                    <p class="text-center pt-10 uppercase" data-title="Project Title" data-description="Detailed description of the project">
                         Caption to image
                     </p>
                 </div>
@@ -89,7 +89,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-center pt-10 uppercase">
+                    <p class="text-center pt-10 uppercase" data-title="Project Title" data-description="Detailed description of the project">
                         Caption to image
                     </p>
                 </div>
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-center pt-10 uppercase">
+                    <p class="text-center pt-10 uppercase" data-title="Project Title" data-description="Detailed description of the project">
                         Caption to image
                     </p>
                 </div>
@@ -117,7 +117,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-center pt-10 uppercase">
+                    <p class="text-center pt-10 uppercase" data-title="Project Title" data-description="Detailed description of the project">
                         Caption to image
                     </p>
                 </div>
@@ -131,7 +131,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-center pt-10 uppercase">
+                    <p class="text-center pt-10 uppercase" data-title="Project Title" data-description="Detailed description of the project">
                         Caption to image
                     </p>
                 </div>
@@ -139,6 +139,57 @@
         </div>
     </div>
 </section>
+
+<!-- Modal Structure -->
+<div id="projectModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 class="modal-title">Project Title</h2>
+        <p class="modal-description">Description of the project will appear here.</p>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById("projectModal");
+    const cards = document.querySelectorAll('.card');
+    const closeBtn = document.querySelector('.close');
+
+    // When the user clicks on the card, open the modal 
+    cards.forEach(card => {
+        card.addEventListener('click', function() {
+            const title = this.querySelector('p').textContent; // Getting the title from card's p tag
+            const description = this.querySelector('span').textContent; // Getting the description from card's span tag
+
+            document.querySelector('.modal-title').textContent = title;
+            document.querySelector('.modal-description').textContent = description;
+
+            modal.style.display = "block";
+            setTimeout(() => {
+                modal.classList.add('show'); // Add the "show" class to the modal
+            }, 10); // Slight delay to ensure modal is rendered before class is added
+        });
+    });
+
+    // When the user clicks on the close button, close the modal
+    closeBtn.addEventListener('click', () => {
+        modal.classList.remove('show'); // Remove the "show" class from the modal
+        // After the transition completes, set the modal display to none
+        setTimeout(() => {
+            modal.style.display = "none";
+        }, 300); // This delay should match the duration of your CSS transition
+    });
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.addEventListener('click', (event) => {
+        if (event.target == modal) {
+            modal.classList.remove('show'); // Remove the "show" class from the modal
+            setTimeout(() => {
+                modal.style.display = "none";
+            }, 300); // This delay should match the duration of your CSS transition
+        }
+    });
+
+</script>
 
 <script>
     document.querySelectorAll('.card').forEach(card => {
@@ -154,8 +205,5 @@
         duration: 1000
     });
 </script>
-
-
-
 
 {% endblock %}

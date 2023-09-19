@@ -89,6 +89,12 @@ nav {
     transition: all 1.3s; /* Transition will now also affect the pseudo-element */
 }
 
+/* Ensure the anchor tag is positioned relative to the pseudo-element */
+.nav-list li a {
+    position: relative;
+}
+
+/* Styling for the ::before pseudo-element */
 .nav-list li a::before {
     content: "";
     position: absolute;
@@ -100,10 +106,15 @@ nav {
     transition: all 1.3s; /* This ensures the animation effect */
 }
 
+/* Hover effect for the anchor links */
 .nav-list li a:hover::before {
     width: 100%; /* On hover, the width expands to 100% */
 }
 
+/* Active state to indicate the current page */
+.nav-list li a.active::before {
+    width: 100% !important; 
+}
 
 /* Hamburger Button Styling */
 #menuToggle {
@@ -272,4 +283,66 @@ nav {
 
 #contactModal > div {
     max-width: 600px;
+}
+
+
+/* modal for the portfolio */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: 20% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    transform: scale(0.7); /* Start the modal at 70% of its original size */
+    opacity: 0;            /* Start the modal fully transparent */
+    transition: transform 0.3s, opacity 0.3s; /* Add transition effect for transform and opacity */
+}
+
+/* Media query for devices with a max-width of 768px (generally targeting tablets and smaller devices) */
+@media screen and (max-width: 768px) {
+    .modal{
+        padding-top: 50%;
+    }
+    
+    .modal-content {
+        width: 90%;       /* Use more width on smaller screens */
+        margin: 10% auto; /* Reduce the vertical margin to center more on the screen */
+        transform: scale(1); /* Set the modal to its original size for better readability on mobile devices */
+    }
+}
+
+
+.modal.show .modal-content {
+    transform: scale(1); /* When modal is shown, animate to 100% size */
+    opacity: 1;         /* Make the modal fully opaque */
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal-title {
+    margin: 0;
+    padding-bottom: 15px;
 }

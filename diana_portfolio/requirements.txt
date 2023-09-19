@@ -3,8 +3,10 @@ cloudinary==1.34.0
 dj-database-url==2.1.0
 Django==4.2.4
 django-browser-reload==1.11.0
+django-ckeditor==6.7.0
 django-cloudinary-storage==0.3.0
 django-heroku==0.3.1
+django-js-asset==2.1.0
 django-tailwind==3.6.0
 gunicorn==21.2.0
 Pillow==10.0.0

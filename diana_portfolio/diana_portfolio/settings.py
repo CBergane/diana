@@ -13,6 +13,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 
+import cloudinary
+import cloudinary_storage
+import cloudinary.uploader
+import cloudinary.api
+
 import dj_database_url
 import os
 
@@ -52,6 +57,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'core',
     'django_browser_reload',
+    'ckeditor',
 ]
 
 TAILWIND_APP_NAME = 'theme'
@@ -110,6 +116,8 @@ DATABASES = {
      'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
  }
 
+DATABASES['default']['CONN_MAX_AGE'] = 300 
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -149,16 +157,23 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
 MEDIA_URL = '/media/'
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('YOUR_CLOUD_NAME'),
-    'API_KEY': os.environ.get('YOUR_API_KEY'),
-    'API_SECRET': os.environ.get('YOUR_API_SECRET'),
-    'SECURE': True,
+    'CLOUD_NAME': 'dzdgvkurl',
+    'API_KEY': '539161362744445',
+    'API_SECRET': '3NULZ-tXPxmBe0VxMsAAcfHRMpI'
 }
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+    },
+}
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
