@@ -39,7 +39,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['https://8000-cbergane-diana-ca6g7fbz0ox.ws-eu104.gitpod.io']
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-cbergane-diana-ca6g7fbz0ox.ws-eu104.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-cbergane-diana-ca6g7fbz0ox.ws-eu104.gitpod.io', 'https://8000-cbergane-diana-ca6g7fbz0ox.ws-eu105.gitpod.io']
 
 
 # Application definition
