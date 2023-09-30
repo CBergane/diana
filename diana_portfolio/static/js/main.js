@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     // LinkedIn Element
     const linkedinElement = document.getElementById('linkedinElement');
+    if (!linkedinElement) console.error('linkedinElement not found!');
+
     if (linkedinElement) {
         const showLinkedinElementAt = 0.8;
         const body = document.body;
@@ -17,19 +19,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 linkedinElement.classList.remove('bounce');
             }
         });
-    } else {
-        console.error('linkedinElement not found!');
     }
 
     // Menu Toggle
     const menuToggle = document.getElementById('menuToggle');
     const menuClose = document.getElementById('menuClose');
     const menu = document.getElementById('menu');
+
+    if (!menuToggle) console.error('menuToggle not found!');
+    if (!menuClose) console.error('menuClose not found!');
+    if (!menu) console.error('menu not found!');
+
     if (menuToggle && menuClose && menu) {
         menuToggle.addEventListener('click', toggleMenu);
         menuClose.addEventListener('click', toggleMenu);
-    } else {
-        console.error('Menu Elements not found!');
     }
 
     // AOS and Swiper initialization
