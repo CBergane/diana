@@ -54,7 +54,7 @@ def send_contact_email(request):
                 subject=f"New contact request from {name}",
                 message=f"From: {name}\nCompany: {company_name}\nEmail: {email}\nPhone: {phone_number}\n\n{message}",
                 from_email=email,
-                recipient_list=['destination_email@example.com'],  # Use actual recipient email
+                recipient_list=[settings.EMAIL_HOST_USER],  # Use actual recipient email
             )
             print("Email sent successfully")
             return JsonResponse({"status": "success"})
