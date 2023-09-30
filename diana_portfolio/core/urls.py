@@ -11,7 +11,7 @@ urlpatterns = [
     path('biography/', biography, name='biography'),
     path('services/', services, name='services'),
     path('clients/', clients, name='clients'),
-    path('send_contact_email/', send_contact_email, name='send_contact_email'),
+    path('contact/', send_contact_email, name='send_contact_email'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

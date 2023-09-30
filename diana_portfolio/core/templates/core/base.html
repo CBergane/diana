@@ -90,7 +90,7 @@
 
     <!-- LinkedIn Element -->
         <div id="linkedinElement" class="fixed bottom-4 right-4 bg-blue-500 p-2 rounded-full shadow-lg opacity-0 cursor-pointer transition-opacity duration-300">
-            <a href="https://www.linkedin.com/in/your-linkedin-id/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/dianasvensson/" target="_blank" rel="noopener noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" height="3em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
             </a>
         </div>
@@ -99,32 +99,33 @@
         <div id="contactModal" class="fixed top-0 left-0 w-full h-full flex items-center justify-center opacity-0 transform -translate-y-full pointer-events-none transition-transform transition-opacity duration-700 ease-out z-50">
             <div class="pink-color-bg mt-20 p-4 md:p-6 rounded-lg w-full md:w-1/2 max-h-[90vh] overflow-auto">
                 <h2 class="text-2xl uppercase md:text-xl mb-4">Contact Me</h2>
-                <form id="contactForm">
+                <form id="contactForm" method="POST" data-csrf="{{ csrf_token }}">
+                    {% csrf_token %}
                     <div class="mb-4">
                         <label class="block text-gray-700 text-base md:text-sm font-bold mb-2" for="name">Name</label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" id="name" type="text" placeholder="John Doe">
+                        <input name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" id="name" type="text" placeholder="John Doe">
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-base md:text-sm font-bold mb-2" for="companyName">Company Name</label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" id="companyName" type="text" placeholder="XYZ Corp.">
+                        <input name="companyName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" id="companyName" type="text" placeholder="XYZ Corp.">
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-base md:text-sm font-bold mb-2" for="email">Email</label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" id="email" type="email" placeholder="john@example.com">
+                        <input name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" id="email" type="email" placeholder="john@example.com">
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-base md:text-sm font-bold mb-2" for="phoneNumber">Phone Number</label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" id="phoneNumber" type="tel" placeholder="+1 123 456 7890">
+                        <input name="phoneNumber" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" id="phoneNumber" type="tel" placeholder="+1 123 456 7890">
                     </div>
                     <div class="mb-6">
                         <label class="block text-gray-700 text-base md:text-sm font-bold mb-2" for="message">Message</label>
-                        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" id="message" placeholder="Your message..."></textarea>
+                        <textarea name="message" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" id="message" placeholder="Your message..."></textarea>
                     </div>
                     <div class="flex items-center justify-between">
                         <button class="dark-gray-color py-3 px-4 border rounded text-base" type="submit">Send Message</button>
                         <button class="text-gray-700 hover:text-gray-900 py-3 px-4" type="button" id="closeModal">Close</button>
                     </div>
-                </form>
+                </form>                
             </div>
         </div>
 
@@ -158,6 +159,57 @@
                 });
             });
         </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                document.getElementById('contactForm').addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    let data = new FormData(this);
+
+                    fetch('/contact/', {
+                        method: 'POST',
+                        body: data,
+                        headers: {
+                            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                        }
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                return response.text().then(text => {
+                                    console.error('Server Response:', text); // Log the actual response text from the server
+                                    throw new Error('Server Error');
+                                });
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            if (data.status === 'success') {
+                                alert('Email sent successfully!');
+                                closeModal(); // Close the modal on success
+                            } else {
+                                alert('Error sending email: ' + (data.error || 'Unknown Error'));
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error during fetch operation: ', error);
+                            alert('Error sending email: ' + error.message);
+                        });
+                });
+
+                // Function to close the modal
+                function closeModal() {
+                    let modal = document.getElementById('contactModal');
+                    modal.style.opacity = '0';
+                    modal.style.pointerEvents = 'none';
+                    modal.style.transform = 'translateY(-100%)';
+                }
+            });
+        </script>
+
+
+
+
         
 
         <script>
