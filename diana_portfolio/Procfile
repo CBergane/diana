@@ -1,1 +1,1 @@
-web: gunicorn diana_portfolio:app
+web: gunicorn diana_portfolio.wsgi
