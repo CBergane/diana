@@ -12,7 +12,7 @@
     <div class="flex flex-col md:flex-row items-center justify-between mb-10 md:p-16 ">
         <!-- Image with slide-up effect -->
         <div class="w-full md:w-1/2 mb-8 md:mb-0 order-1 md:order-none" data-aos="zoom-in-down" data-aos-duration="1000">
-            <img src="{{ biography_1.image.url }}" alt="Biography Image" class="w-full md:w-3/4 lg:w-2/3 h-auto">
+            <img src="{{ biography_1.image.url|safe }}" alt="Biography Image" class="w-full md:w-3/4 lg:w-2/3 h-auto">
         </div>
 
         <!-- Biography Text with slide-left effect -->
@@ -26,9 +26,6 @@
 
     <!-- Second Set - Image and Text -->
     <div class="flex flex-col md:flex-row items-center justify-between">
-
-
-
         <!-- Biography Text with slide-left effect -->
         <div class="w-full md:w-1/2 md:p-6 p-0 order-4 md:order-none" data-aos="zoom-in-down" data-aos-duration="1000">
             <h1 class="text-2xl mb-4 underline-pink">Biography Title</h1>
@@ -38,7 +35,7 @@
         </div>
                 <!-- Image with slide-up effect -->
         <div class="w-full md:w-1/2 mb-8 md:mb-0 order-3 md:order-none" data-aos="zoom-in-down" data-aos-duration="1000">
-            <img src="{{ biography_2.image.url }}" alt="Biography Image" class="w-full h-auto">
+            <img src="{{ biography_2.image.url|safe }}" alt="Biography Image" class="w-full h-auto">
         </div>
     </div>
 </div>

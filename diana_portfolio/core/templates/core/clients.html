@@ -12,7 +12,7 @@
             <div class="client-item text-center">
                 <div class="client-image">
                     <!-- Display the client's logo -->
-                    <img src="{{ client.image.url }}" alt="{{ client.name }}" class="mx-auto mb-4 max-h-24 w-auto">
+                    <img src="{{ client.image.url|safe }}" alt="{{ client.name }}" class="mx-auto mb-4 max-h-24 w-auto">
                 </div>
                 <div class="client-name">
                     <!-- Display the client's name -->
