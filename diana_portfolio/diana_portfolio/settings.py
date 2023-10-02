@@ -13,8 +13,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 
-import cloudinary
 import cloudinary_storage
+import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
@@ -42,6 +42,8 @@ ALLOWED_HOSTS = ['https://8000-cbergane-diana-ca6g7fbz0ox.ws-eu104.gitpod.io']
 CSRF_TRUSTED_ORIGINS = ['https://8000-cbergane-diana-ca6g7fbz0ox.ws-eu104.gitpod.io', 'https://8000-cbergane-diana-ca6g7fbz0ox.ws-eu105.gitpod.io']
 
 
+SITE_ID = 1
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -57,7 +59,6 @@ INSTALLED_APPS = [
     'ckeditor',
 ]
 
-TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS = [
     "https://cbergane-diana-ca6g7fbz0ox.ws-eu104.gitpod.io/",
 ]
