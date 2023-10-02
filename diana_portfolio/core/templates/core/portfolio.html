@@ -9,132 +9,22 @@
         <h1 class="text-3xl uppercase underline-pink dark-gray-color">My Portfolio</h1>
         <div class="lg:p-[150px] pt-[150px]">
             <div class="grid lg:grid-cols-3 grid-cols-1 gap-[60px] lg:gap-y-[250px] lg:gap-x-11 my-8">
+                {% for portfolio_entry in portfolios %}
                 <div class="card transform transition-transform duration-500 overflow-hidden gray-color-bg group" data-aos="zoom-in-down" data-aos-duration="1000">
                     <div class="relative overflow-hidden">
                         <div class="hover:scale-110 transform transition-transform duration-500 overflow-hidden">
-                            <img class="w-full h-60 object-center" src="{% static 'images/1.jpg' %}" alt="Description">
+                            <img class="w-full h-60 object-center" src="{{ portfolio_entry.image.url }}" alt="{{ portfolio_entry.title }}">
                             <div class="absolute top-0 left-0 w-full h-60 bg-gradient-to-b from-black via-transparent to-black opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
                             <div class="absolute top-0 left-0 w-full h-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <span class="gray-color">Short explanation of the image</span>
+                                <span class="gray-color">{{ portfolio_entry.description|safe }}</span>
                             </div>
                         </div>
                     </div>
-                    <p class="text-center pt-10 uppercase" data-title="Project Title" data-description="Detailed description of the project">
-                        Caption to image
-                    </p>
+                    <p class="text-center pt-10 uppercase title-class">
+                        {{ portfolio_entry.title }}
+                    </p>                    
                 </div>
-                <div class="card transform transition-transform duration-500 overflow-hidden gray-color-bg group" data-aos="zoom-in-down" data-aos-duration="1000">
-                    <div class="relative overflow-hidden">
-                        <div class="hover:scale-110 transform transition-transform duration-500 overflow-hidden">
-                            <img class="w-full h-60 object-center" src="{% static 'images/2.jpg' %}" alt="Description">
-                            <div class="absolute top-0 left-0 w-full h-60 bg-gradient-to-b from-black via-transparent to-black opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
-                            <div class="absolute top-0 left-0 w-full h-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <span class="gray-color">Short explanation of the image</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-center pt-10 uppercase" data-title="Project Title" data-description="Detailed description of the project">
-                        Caption to image
-                    </p>
-                </div>
-                <div class="card gray-color-bg group " data-aos="zoom-in-down" data-aos-duration="1000">
-                    <div class="relative overflow-hidden">
-                        <div class="hover:scale-110 transform transition-transform duration-500 overflow-hidden">
-                            <img class="w-full h-60 object-center" src="{% static 'images/3.jpg' %}" alt="Description">
-                            <div class="absolute top-0 left-0 w-full h-60 bg-gradient-to-b from-black via-transparent to-black opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
-                            <div class="absolute top-0 left-0 w-full h-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <span class="gray-color">Short explanation of the image</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-center pt-10 uppercase" data-title="Project Title" data-description="Detailed description of the project">
-                        Caption to image
-                    </p>
-                </div>
-                <div class="card transform transition-transform duration-500 overflow-hidden gray-color-bg group" data-aos="zoom-in-down" data-aos-duration="1000">
-                    <div class="relative overflow-hidden">
-                        <div class="hover:scale-110 transform transition-transform duration-500 overflow-hidden">
-                            <img class="w-full h-60 object-center" src="{% static 'images/1.jpg' %}" alt="Description">
-                            <div class="absolute top-0 left-0 w-full h-60 bg-gradient-to-b from-black via-transparent to-black opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
-                            <div class="absolute top-0 left-0 w-full h-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <span class="gray-color">Short explanation of the image</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-center pt-10 uppercase" data-title="Project Title" data-description="Detailed description of the project">
-                        Caption to image
-                    </p>
-                </div>
-                <div class="card transform transition-transform duration-500 overflow-hidden gray-color-bg group" data-aos="zoom-in-down" data-aos-duration="1000">
-                    <div class="relative overflow-hidden">
-                        <div class="hover:scale-110 transform transition-transform duration-500 overflow-hidden">
-                            <img class="w-full h-60 object-center" src="{% static 'images/2.jpg' %}" alt="Description">
-                            <div class="absolute top-0 left-0 w-full h-60 bg-gradient-to-b from-black via-transparent to-black opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
-                            <div class="absolute top-0 left-0 w-full h-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <span class="gray-color">Short explanation of the image</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-center pt-10 uppercase" data-title="Project Title" data-description="Detailed description of the project">
-                        Caption to image
-                    </p>
-                </div>
-                <div class="card transform transition-transform duration-500 overflow-hidden gray-color-bg group" data-aos="zoom-in-down" data-aos-duration="1000">
-                    <div class="relative overflow-hidden">
-                        <div class="hover:scale-110 transform transition-transform duration-500 overflow-hidden">
-                            <img class="w-full h-60 object-center" src="{% static 'images/3.jpg' %}" alt="Description">
-                            <div class="absolute top-0 left-0 w-full h-60 bg-gradient-to-b from-black via-transparent to-black opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
-                            <div class="absolute top-0 left-0 w-full h-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <span class="gray-color">Short explanation of the image</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-center pt-10 uppercase" data-title="Project Title" data-description="Detailed description of the project">
-                        Caption to image
-                    </p>
-                </div>
-                <div class="card transform transition-transform duration-500 overflow-hidden gray-color-bg group" data-aos="zoom-in-down" data-aos-duration="1000">
-                    <div class="relative overflow-hidden">
-                        <div class="hover:scale-110 transform transition-transform duration-500 overflow-hidden">
-                            <img class="w-full h-60 object-center" src="{% static 'images/1.jpg' %}" alt="Description">
-                            <div class="absolute top-0 left-0 w-full h-60 bg-gradient-to-b from-black via-transparent to-black opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
-                            <div class="absolute top-0 left-0 w-full h-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <span class="gray-color">Short explanation of the image</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-center pt-10 uppercase" data-title="Project Title" data-description="Detailed description of the project">
-                        Caption to image
-                    </p>
-                </div>
-                <div class="card transform transition-transform duration-500 overflow-hidden gray-color-bg group" data-aos="zoom-in-down" data-aos-duration="1000">
-                    <div class="relative overflow-hidden">
-                        <div class="hover:scale-110 transform transition-transform duration-500 overflow-hidden">
-                            <img class="w-full h-60 object-center" src="{% static 'images/2.jpg' %}" alt="Description">
-                            <div class="absolute top-0 left-0 w-full h-60 bg-gradient-to-b from-black via-transparent to-black opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
-                            <div class="absolute top-0 left-0 w-full h-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <span class="gray-color">Short explanation of the image</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-center pt-10 uppercase" data-title="Project Title" data-description="Detailed description of the project">
-                        Caption to image
-                    </p>
-                </div>
-                <div class="card transform transition-transform duration-500 overflow-hidden gray-color-bg group" data-aos="zoom-in-down" data-aos-duration="1000">
-                    <div class="relative overflow-hidden">
-                        <div class="hover:scale-110 transform transition-transform duration-500 overflow-hidden">
-                            <img class="w-full h-60 object-center" src="{% static 'images/3.jpg' %}" alt="Description">
-                            <div class="absolute top-0 left-0 w-full h-60 bg-gradient-to-b from-black via-transparent to-black opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
-                            <div class="absolute top-0 left-0 w-full h-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <span class="gray-color">Short explanation of the image</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-center pt-10 uppercase" data-title="Project Title" data-description="Detailed description of the project">
-                        Caption to image
-                    </p>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -144,8 +34,8 @@
 <div id="projectModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <h2 class="modal-title">Project Title</h2>
-        <p class="modal-description">Description of the project will appear here.</p>
+        <h2 class="modal-title"></h2>
+        <p class="modal-description"></p>
     </div>
 </div>
 
@@ -157,11 +47,11 @@
     // When the user clicks on the card, open the modal 
     cards.forEach(card => {
         card.addEventListener('click', function() {
-            const title = this.querySelector('p').textContent; // Getting the title from card's p tag
-            const description = this.querySelector('span').textContent; // Getting the description from card's span tag
+            const title = this.querySelector('.title-class').textContent; // Getting the title from card's p tag
+            const description = this.querySelector('.gray-color').innerHTML; // Getting the description from card's span tag with |safe
 
             document.querySelector('.modal-title').textContent = title;
-            document.querySelector('.modal-description').textContent = description;
+            document.querySelector('.modal-description').innerHTML = description; // Using innerHTML to render HTML content
 
             modal.style.display = "block";
             setTimeout(() => {
@@ -190,6 +80,7 @@
     });
 
 </script>
+
 
 <script>
     document.querySelectorAll('.card').forEach(card => {
