@@ -2,28 +2,42 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-        <!-- Googlefonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{% block title %}{% endblock %} | Diana</title>
+    
+        <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;1,400&display=swap" rel="stylesheet">
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <!-- Swiper -->
-        <!-- Swiper CSS -->
-        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-        <!-- Swiper JS -->
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-        <!-- Fontawsome -->
+    
+        <!-- Font Awesome -->
         <script src="https://kit.fontawesome.com/96a4d5e388.js" crossorigin="anonymous"></script>
-        <!-- tailwind ccs -->
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+        <!-- Swiper -->
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
+        <!-- AOS (Animate on Scroll) -->
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-        <script src="https://cdn.tailwindcss.com"></script>
+    
+        <!-- HTMX -->
+        <script src="https://unpkg.com/htmx.org@1.9.4" integrity="sha384-zUfuhFKKZCbHTY6aRR46gxiqszMk5tcHjsVFxnUo8VMus4kHGVdIYVbOYYNlKmHV" crossorigin="anonymous"></script>
+    
+        <!-- jQuery (if needed by HTMX) -->
+        <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script> -->
+    
+        <!-- Tailwind CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+        <!-- Custom CSS -->
         <link href="{% static 'css/style.css' %}" rel="stylesheet">
-        <title>{% block title %}{% endblock %} | Diana</title>
-	</head>
+    
+        <!-- Custom JavaScript -->
+        <script src="{% static 'js/main.js' %}"></script>
+        <script src="{% static 'js/form.js' %}"></script>
+        <script src="{% static 'js/carousel.js' %}"></script>
+    </head>
 
     <body class="flex flex-col min-h-screen leading-normal tracking-normal">
         <nav class="main-color-bg p-6 sticky -mb-20">
