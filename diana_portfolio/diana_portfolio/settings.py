@@ -51,8 +51,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tailwind',
-    'theme',
     'cloudinary',
     'cloudinary_storage',
     'core',
