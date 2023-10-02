@@ -56,7 +56,6 @@ INSTALLED_APPS = [
     'cloudinary',
     'cloudinary_storage',
     'core',
-    'django_browser_reload',
     'ckeditor',
 ]
 
