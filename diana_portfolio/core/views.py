@@ -37,24 +37,24 @@ def clients(request):
     clients = ClientPartner.objects.all()
     return render(request, 'core/clients.html', {'testimonials': testimonials, 'clients': clients})
 
-@csrf_exempt
-def send_contact_email(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        company_name = request.POST.get('companyName')
-        email = request.POST.get('email')
-        phone_number = request.POST.get('phoneNumber')
-        message = request.POST.get('message')
+# @csrf_exempt
+# def send_contact_email(request):
+#     if request.method == 'POST':
+#         name = request.POST.get('name')
+#         company_name = request.POST.get('companyName')
+#         email = request.POST.get('email')
+#         phone_number = request.POST.get('phoneNumber')
+#         message = request.POST.get('message')
 
-        try:
-            send_mail(
-                subject=f"New contact request from {name}",
-                message=f"From: {name}\nCompany: {company_name}\nEmail: {email}\nPhone: {phone_number}\n\n{message}",
-                from_email=email,
-                recipient_list=[settings.EMAIL_HOST_USER],
-            )
-            return JsonResponse({"status": "success"})
-        except Exception as e:
-            return JsonResponse({"status": "error", "error": str(e)})
+#         try:
+#             send_mail(
+#                 subject=f"New contact request from {name}",
+#                 message=f"From: {name}\nCompany: {company_name}\nEmail: {email}\nPhone: {phone_number}\n\n{message}",
+#                 from_email=email,
+#                 recipient_list=[settings.EMAIL_HOST_USER],
+#             )
+#             return JsonResponse({"status": "success"})
+#         except Exception as e:
+#             return JsonResponse({"status": "error", "error": str(e)})
 
-    return JsonResponse({"status": "invalid"})
+#     return JsonResponse({"status": "invalid"})
