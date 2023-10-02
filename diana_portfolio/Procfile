@@ -1,1 +1,1 @@
-web: gunicorn diana_portfolio.wsgi --timeout 10
+web: gunicorn diana_portfolio.wsgi --timeout 40
