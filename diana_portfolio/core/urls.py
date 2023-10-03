@@ -3,7 +3,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views
 
-from core.views import front, portfolio, biography, services, clients
+from core.views import front, portfolio, biography, services, clients, send_contact_email
 
 urlpatterns = [
     path('', front, name="index"),
