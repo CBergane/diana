@@ -22,18 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Menu Toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const menuClose = document.getElementById('menuClose');
-    const menu = document.getElementById('menu');
-
-    if (!menuToggle) console.error('menuToggle not found!');
-    if (!menuClose) console.error('menuClose not found!');
-    if (!menu) console.error('menu not found!');
-
-    if (menuToggle && menuClose && menu) {
-        menuToggle.addEventListener('click', toggleMenu);
-        menuClose.addEventListener('click', toggleMenu);
-    }
+    
 
     // AOS and Swiper initialization
     AOS.init({ once: false });
@@ -55,24 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-function toggleMenu() {
-    const menu = document.getElementById('menu');
-    const hamburger = document.getElementById('menuToggle');
-    if (menu && hamburger) {
-        if (menu.classList.contains('invisible')) {
-            menu.classList.remove('invisible');
-            hamburger.classList.add('active');
-            setTimeout(function () {
-                menu.classList.add('translate-x-0');
-            }, 50);
-        } else {
-            menu.classList.remove('translate-x-0');
-            hamburger.classList.remove('active');
-            setTimeout(function () {
-                menu.classList.add('invisible');
-            }, 500);
-        }
-    }
-}
+
 
 

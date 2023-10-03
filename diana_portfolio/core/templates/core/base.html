@@ -8,7 +8,9 @@
         <title>{% block title %}{% endblock %} | Diana</title>
     
         <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;1,400&display=swap" rel="stylesheet">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;1,400&display=swap');
+        </style>
     
         <!-- Font Awesome -->
         <script src="https://kit.fontawesome.com/96a4d5e388.js" crossorigin="anonymous"></script>
@@ -40,27 +42,32 @@
     </head>
 
     <body class="flex flex-col min-h-screen leading-normal tracking-normal">
-        <nav class="main-color-bg p-6 sticky -mb-20">
-            <div class="max-w-6xl mx-auto py-2 px-6 xl:px-0 items-center flex justify-between">
-                <div class="flex-grow"></div> <!-- This empty div will push the menu to the far right -->
-                <button id="menuToggle" class="hamburger lg:hidden px-2 py-1 z-50">
-    
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-                
-            </div>
-            <ul id="menu" class="nav-list top-0 left-0 h-full w-full main-color-bg0 text-white transform -translate-x-full invisible overflow-y-auto transition-transform duration-500 lg:static lg:w-auto lg:transform-none lg:bg-transparent lg:flex lg:flex-row z-40 lg:visible">
-                <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'index' %}" {% if request.resolver_match.url_name == 'index' %}class="active"{% endif %}>HOME</a></li>
-                <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'biography' %}" {% if request.resolver_match.url_name == 'biography' %}class="active"{% endif %}>BIOGRAPHY</a></li>
-                <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'services' %}" {% if request.resolver_match.url_name == 'services' %}class="active"{% endif %}>SERVICES</a></li>
-                <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'portfolio' %}" {% if request.resolver_match.url_name == 'portfolio' %}class="active"{% endif %}>PORTFOLIO</a></li>
-                <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'index' %}#testimonials-section">TESTIMONIALS</a></li>
-                <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'clients' %}" {% if request.resolver_match.url_name == 'clients' %}class="active"{% endif %}>CLIENTS/PARTNERS</a></li>
-                <li class="py-2 text-center lg:py-0 uppercase"><a href="#" id="contactLink">Contact</a></li>
-            </ul>
-        </nav>
+        <section>
+            <nav class="main-color-bg p-6 sticky -mb-20 relative">
+                <div class="max-w-6xl mx-auto py-2 px-6 xl:px-0 items-center flex justify-between relative">
+                    <div class="flex-grow"></div>
+                    <button id="menuToggle" class="hamburger lg:hidden px-2 py-1 z-50">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                </div>
+                <div class="flex justify-center mb-10 relative z-12"> <!-- Add z-10 to bring the logo above the menu -->
+                    <div class="w-24 h-24 bg-white rounded-full overflow-hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-3/4 lg:-translate-y-10">
+                        <img src="{% static 'images/DS MEDIA.png' %}" alt="" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <ul id="menu" class="nav-list top-0 left-0 h-full w-full main-color-bg0 text-white overflow-y-auto lg:static lg:w-auto lg:transform-none lg:bg-transparent lg:flex lg:flex-row z-40 lg:visible mt-20"> <!-- Add mt-20 (or adjust the value) -->
+                    <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'index' %}" {% if request.resolver_match.url_name == 'index' %}class="active"{% endif %}>HOME</a></li>
+                    <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'biography' %}" {% if request.resolver_match.url_name == 'biography' %}class="active"{% endif %}>BIOGRAPHY</a></li>
+                    <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'services' %}" {% if request.resolver_match.url_name == 'services' %}class="active"{% endif %}>SERVICES</a></li>
+                    <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'portfolio' %}" {% if request.resolver_match.url_name == 'portfolio' %}class="active"{% endif %}>PORTFOLIO</a></li>
+                    <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'index' %}#testimonials-section">TESTIMONIALS</a></li>
+                    <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'clients' %}" {% if request.resolver_match.url_name == 'clients' %}class="active"{% endif %}>CLIENTS/PARTNERS</a></li>
+                    <li class="py-2 text-center lg:py-0 uppercase"><a href="#" id="contactLink">Contact</a></li>
+                </ul>
+            </nav>
+        </section>
 
         <main class="flex-grow lg:mt-[75px]">
             {% if messages %}
@@ -159,6 +166,86 @@
         <script src="https://kit.fontawesome.com/96a4d5e388.js" crossorigin="anonymous"></script>
 
         <!-- My custom JavaScript -->
+        <script>
+            function toggleMenu() {
+                var menu = document.getElementById('menu');
+                var hamburger = document.getElementById('menuToggle');
+                            
+                if (menu.classList.contains('invisible')) {
+                    menu.classList.remove('invisible');
+                    menu.classList.add('active'); // Add the active class to the menu
+                    hamburger.classList.add('active'); // Add the active class to the hamburger
+                } else {
+                    hamburger.classList.remove('active'); // Remove the active class from the hamburger
+                    setTimeout(function() {
+                        menu.classList.add('invisible');
+                        menu.classList.remove('active'); // Remove the active class from the menu
+                    }, 500);
+                }
+            }
+
+            document.getElementById('menuToggle').addEventListener('click', toggleMenu);
+
+            </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Initialize AOS
+                AOS.init({
+                    once: false,
+                });
         
+                // Initialize Swiper
+                const swiper = new Swiper('.swiper-container', {
+                    // Optional parameters
+                    direction: 'horizontal',
+                    loop: true,
+                    autoplay: {
+                        delay: 5000, //5 seconds
+                    },
+        
+                    // If you need pagination
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+        
+                    // Navigation arrows
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+            });
+        </script>
+        <script>
+            const contactLink = document.getElementById('contactLink');
+            const contactModal = document.getElementById('contactModal');
+            const closeModal = document.getElementById('closeModal');
+
+            contactLink.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                // Check if menu is visible and if yes, then toggle it off.
+                var menu = document.getElementById('menu');
+                if (!menu.classList.contains('invisible')) {
+                    toggleMenu();
+                }
+
+                contactModal.style.opacity = "1";
+                contactModal.style.transform = "translateY(0)";
+                contactModal.style.pointerEvents = "auto";
+            });
+
+            closeModal.addEventListener('click', function() {
+                contactModal.style.opacity = "0";
+                contactModal.style.transform = "translateY(-100%)";
+                // Set pointer events to none after the transition completes
+                setTimeout(() => {
+                    contactModal.style.pointerEvents = "none";
+                }, 700);
+            });
+
+
+        </script>
 </body>
 </html>

@@ -137,7 +137,6 @@ nav {
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: 999;
         padding-top: 50px; /* spacing at the top */
     }
     .nav-list.active {
@@ -149,7 +148,7 @@ nav {
         margin: 10px 0;
     }
 
-    #menuToggle, #menuClose {
+    #menuToggle {
         font-size: 1.5rem; 
         background: none;
         border: none;
@@ -177,8 +176,6 @@ nav {
     .hamburger.active .bar:nth-child(3) {
         transform: translateY(-7px) rotate(-45deg);
     }
-    
-    
 }
 
 /* Carusel */
