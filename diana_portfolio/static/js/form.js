@@ -35,12 +35,12 @@ function handleSubmit(event) {
         .then(data => {
             if (data.status === "success") {
                 console.log("Email sent successfully!");
+                closeContactModal();
+                window.location.href = '{% url "index" %}';
             } else {
                 console.error("Error sending email:", data.error);
             }
         });
-        closeContactModal();
-        window.location.href = '{% url "index" %}';
 }
 
 function handleContactLinkClick(event) {
