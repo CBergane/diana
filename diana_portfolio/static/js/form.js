@@ -23,7 +23,7 @@ function handleSubmit(event) {
         message: document.getElementById('message').value,
     };
 
-    fetch("{% url 'send_contact_email' %}", {
+    fetch("/contact/", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
