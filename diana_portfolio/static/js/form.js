@@ -40,6 +40,7 @@ function handleSubmit(event) {
             }
         });
         closeContactModal();
+        window.location.href = '{% url "index" %}';
 }
 
 function handleContactLinkClick(event) {
