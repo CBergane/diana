@@ -217,35 +217,6 @@
                 });
             });
         </script>
-        <script>
-            const contactLink = document.getElementById('contactLink');
-            const contactModal = document.getElementById('contactModal');
-            const closeModal = document.getElementById('closeModal');
 
-            contactLink.addEventListener('click', function(event) {
-                event.preventDefault();
-
-                // Check if menu is visible and if yes, then toggle it off.
-                var menu = document.getElementById('menu');
-                if (!menu.classList.contains('invisible')) {
-                    toggleMenu();
-                }
-
-                contactModal.style.opacity = "1";
-                contactModal.style.transform = "translateY(0)";
-                contactModal.style.pointerEvents = "auto";
-            });
-
-            closeModal.addEventListener('click', function() {
-                contactModal.style.opacity = "0";
-                contactModal.style.transform = "translateY(-100%)";
-                // Set pointer events to none after the transition completes
-                setTimeout(() => {
-                    contactModal.style.pointerEvents = "none";
-                }, 700);
-            });
-
-
-        </script>
 </body>
 </html>

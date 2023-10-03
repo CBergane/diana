@@ -10,7 +10,7 @@
         <div class="lg:p-[150px] pt-[150px]">
             <div class="grid lg:grid-cols-5 grid-cols-2 gap-[60px] lg:gap-y-[250px] lg:gap-x-11 mt-8">
                 {% for portfolio_entry in portfolios %}
-                <div class="card transform transition-transform duration-500 overflow-hidden gray-color-bg group" data-aos="zoom-in-down" data-aos-duration="1000">
+                <div class="card transform transition-transform duration-500 overflow-hidden gray-color-bg group px-4 cursor-pointer" data-aos="zoom-in-down" data-aos-duration="1000">
                     <div class="relative overflow-hidden">
                         <div class="hover:scale-110 transform transition-transform duration-500 overflow-hidden">
                             <img class="w-full h-60 object-fill" src="{{ portfolio_entry.image.url }}" alt="{{ portfolio_entry.title }}">
