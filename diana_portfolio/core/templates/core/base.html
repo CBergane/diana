@@ -66,17 +66,17 @@
                     <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'clients' %}" {% if request.resolver_match.url_name == 'clients' %}class="active"{% endif %}>CLIENTS/PARTNERS</a></li>
                     <li class="py-2 text-center lg:py-0 uppercase"><a href="#" id="contactLink">Contact</a></li>
                 </ul>
+                {% if messages %}
+                <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}      
             </nav>
         </section>
 
-        <main class="flex-grow lg:mt-[75px]">
-            {% if messages %}
-            <ul class="messages">
-              {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-              {% endfor %}
-            </ul>
-          {% endif %}          
+        <main class="flex-grow lg:mt-[75px]">    
 
             {% block content %}
 
