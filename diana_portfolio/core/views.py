@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
+from django.contrib import messages
 
 from .models import Biography, Service, Portfolio, Testimonial, ClientPartner
 
@@ -61,6 +62,7 @@ def send_contact_email(request):
                 from_email=email,
                 recipient_list=[settings.EMAIL_HOST_USER],
             )
+            messages.success(request, 'Your message has been sent successfully!')
             return JsonResponse({"status": "success"})
         except Exception as e:
             return JsonResponse({"status": "error", "error": str(e)})

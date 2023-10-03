@@ -39,6 +39,7 @@ function handleSubmit(event) {
                 console.error("Error sending email:", data.error);
             }
         });
+        closeContactModal();
 }
 
 function handleContactLinkClick(event) {
