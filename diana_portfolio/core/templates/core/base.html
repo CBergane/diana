@@ -34,6 +34,9 @@
     
         <!-- Custom CSS -->
         <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+        <!-- Favicon -->
+        <link rel="icon" href="{% static '/favicon.ico' %}">
     
         <!-- Custom JavaScript -->
         <script src="{% static 'js/main.js' %}"></script>
@@ -42,7 +45,7 @@
     </head>
 
     <body class="flex flex-col min-h-screen leading-normal tracking-normal">
-        <section>
+
             <nav class="main-color-bg p-6 sticky -mb-20 relative">
                 <div class="max-w-6xl mx-auto py-2 px-6 xl:px-0 items-center flex justify-between relative">
                     <div class="flex-grow"></div>
@@ -67,7 +70,6 @@
                     <li class="py-2 text-center lg:py-0 uppercase"><a href="#" id="contactLink">Contact</a></li>
                 </ul>   
             </nav>
-        </section>
 
         <main class="flex-grow lg:mt-[75px]">    
             {% block content %}
