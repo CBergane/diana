@@ -89,6 +89,21 @@ nav {
     transition: all 1.3s; /* Transition will now also affect the pseudo-element */
 }
 
+main {
+    margin-top: calc(/* height of your navbar */ + /* any additional space you want */);
+}
+
+main {
+    margin-top: 110px; /* Extra 10px for spacing */
+}
+
+
+nav.sticky {
+    top: 0; /* You can adjust this value as needed */
+    z-index: 1000; /* This ensures the nav is above other content */
+}
+
+
 /* Ensure the anchor tag is positioned relative to the pseudo-element */
 .nav-list li a {
     position: relative;

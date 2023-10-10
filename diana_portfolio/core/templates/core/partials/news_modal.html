@@ -1,0 +1,24 @@
+{% if active_news %}
+<div class="fixed inset-0 flex items-center justify-center z-50">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-3/4 max-w-xl">
+        <button class="absolute top-2 right-2 text-xl">&times;</button> <!-- This is a close button, you can style it further -->
+        <h2 class="text-2xl mb-4">{{ active_news.title }}</h2>
+        {% if active_news.image %}
+            <img src="{{ active_news.image.url }}" alt="{{ active_news.title }}" class="mb-4 rounded">
+        {% endif %}
+        <div class="news-content mb-4">{{ active_news.content|safe }}</div>
+        {% if active_news.link %}
+            <a href="{{ active_news.link }}" class="text-blue-500 hover:underline">Read More</a>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
+
+<script>
+    const newsModal = document.querySelector('.news-modal');
+    const closeModalBtn = newsModal.querySelector('button');
+
+    closeModalBtn.addEventListener('click', function() {
+        newsModal.style.display = 'none';
+    });
+</script>

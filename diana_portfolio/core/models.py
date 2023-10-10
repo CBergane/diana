@@ -42,3 +42,12 @@ class ClientPartner(models.Model):
     def __str__(self):
         return self.name
     
+class News(models.Model):
+    title = models.CharField(max_length=255)
+    content = RichTextField()
+    image = CloudinaryField('image')
+    link = models.URLField(blank=True, null=True)
+    active = models.BooleanField(default=False)  # to determine if the news should be shown as a modal
+
+    def __str__(self):
+        return self.title

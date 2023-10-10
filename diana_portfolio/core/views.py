@@ -5,16 +5,28 @@ from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 from django.contrib import messages
 
-from .models import Biography, Service, Portfolio, Testimonial, ClientPartner
+from .models import Biography, Service, Portfolio, Testimonial, ClientPartner, News
 
 
 def front(request):
     testimonials = Testimonial.objects.all()
     services = Service.objects.all()
 
+    # Check for active news
+    active_news = None
+    if not request.session.get('news_modal_shown', False): # If news modal hasn't been shown
+        try:
+            active_news = News.objects.filter(active=True).latest('id')  # Fetch the latest active news
+        except News.DoesNotExist:
+            pass  # No active news to show
+    
+        if active_news:
+            request.session['news_modal_shown'] = True  # Mark the news modal as shown for this session
+
     context = {
         'testimonials': testimonials,
         'services': services,
+        'active_news': active_news,  # Send the active news to the template
     }
 
     return render(request, 'core/front.html', context)
