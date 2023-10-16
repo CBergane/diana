@@ -37,9 +37,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://8000-cbergane-diana-ca6g7fbz0ox.ws-eu104.gitpod.io']
+ALLOWED_HOSTS = ['cbergane-diana-ca6g7fbz0ox.ws-eu104.gitpod.io', 'diana-port-b04843c44568.herokuapp.com/']
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-cbergane-diana-ca6g7fbz0ox.ws-eu104.gitpod.io', 'https://8000-cbergane-diana-ca6g7fbz0ox.ws-eu105.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-cbergane-diana-ca6g7fbz0ox.ws-eu104.gitpod.io', 'https://diana-port-b04843c44568.herokuapp.com/']
 
 
 SITE_ID = 1
@@ -97,6 +97,8 @@ STATICFILES_DIRS = [
 ]
 
 WSGI_APPLICATION = 'diana_portfolio.wsgi.application'
+
+DEBUG_PROPAGATE_EXCEPTIONS = True
 
 
 # Database
