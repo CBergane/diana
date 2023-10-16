@@ -1,7 +1,7 @@
 {% if active_news %}
-<div class="fixed inset-0 flex items-start justify-center p-32 sm:p-44 lg:p-44 z-50">
-    <div class="bg-white p-4 sm:p-6 rounded-lg shadow-lg w-full sm:w-3/4 md:w-2/3 lg:w-2/3 xl:w-2/3">
-        <button class="top-2 right-2 text-xl">&times;</button>
+<div class="fixed inset-0 flex items-center justify-center p-4 sm:p-8 lg:p-12 z-50">
+    <div class="bg-white p-4 sm:p-6 rounded-lg shadow-lg w-full sm:w-3/4 md:w-2/3 lg:w-2/3 xl:w-2/3 relative">
+        <button class="absolute top-2 right-2 text-xl">&times;</button>
         <h2 class="text-2xl mb-4">{{ active_news.title }}</h2>
         
         <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
@@ -20,11 +20,13 @@
 {% endif %}
 
 
+
 <script>
-    const newsModal = document.querySelector('.fixed');  // Adjusted the class name here
+    const newsModal = document.querySelector('.fixed'); 
     const closeModalBtn = newsModal.querySelector('button');
 
     closeModalBtn.addEventListener('click', function() {
         newsModal.style.display = 'none';
     });
+
 </script>
