@@ -14,14 +14,10 @@ def front(request):
 
     # Check for active news
     active_news = None
-    if not request.session.get('news_modal_shown', False): # If news modal hasn't been shown
-        try:
-            active_news = News.objects.filter(active=True).latest('id')  # Fetch the latest active news
-        except News.DoesNotExist:
-            pass  # No active news to show
-    
-        if active_news:
-            request.session['news_modal_shown'] = True  # Mark the news modal as shown for this session
+    try:
+        active_news = News.objects.filter(active=True).latest('id')  # Fetch the latest active news
+    except News.DoesNotExist:
+        pass  # No active news to show
 
     context = {
         'testimonials': testimonials,
@@ -30,6 +26,7 @@ def front(request):
     }
 
     return render(request, 'core/front.html', context)
+
 
 
 def portfolio(request):

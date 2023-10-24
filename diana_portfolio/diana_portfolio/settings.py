@@ -35,11 +35,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['cbergane-diana-ca6g7fbz0ox.ws-eu104.gitpod.io', 'diana-port-b04843c44568.herokuapp.com/']
+ALLOWED_HOSTS = ['https://8000-cbergane-diana-ca6g7fbz0ox.ws-eu105.gitpod.io', 'diana-port-b04843c44568.herokuapp.com/']
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-cbergane-diana-ca6g7fbz0ox.ws-eu104.gitpod.io', 'https://diana-port-b04843c44568.herokuapp.com/']
+CSRF_TRUSTED_ORIGINS = ['https://8000-cbergane-diana-ca6g7fbz0ox.ws-eu105.gitpod.io', 'https://diana-port-b04843c44568.herokuapp.com/']
 
 
 SITE_ID = 1
