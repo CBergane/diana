@@ -50,21 +50,22 @@
                         <span class="bar"></span>
                     </button>
                 </div>
-                <div class="flex justify-center mb-10 relative z-12"> <!-- Add z-10 to bring the logo above the menu -->
-                    <div class="w-24 h-24 bg-white rounded-full overflow-hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-3/4 lg:-translate-y-10">
-                        <img src="{% static 'images/DS MEDIA.png' %}" alt="" class="w-full h-full object-cover">
-                    </div>
-                </div>
-                <ul id="menu" class="nav-list top-0 left-0 h-full w-full main-color-bg0 text-white overflow-y-auto lg:static lg:w-auto lg:transform-none lg:bg-transparent lg:flex lg:flex-row z-40 lg:visible mt-20"> <!-- Add mt-20 (or adjust the value) -->
-                    <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'index' %}" {% if request.resolver_match.url_name == 'index' %}class="active"{% endif %}>HOME</a></li>
-                    <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'biography' %}" {% if request.resolver_match.url_name == 'biography' %}class="active"{% endif %}>BIOGRAPHY</a></li>
-                    <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'services' %}" {% if request.resolver_match.url_name == 'services' %}class="active"{% endif %}>SERVICES</a></li>
-                    <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'portfolio' %}" {% if request.resolver_match.url_name == 'portfolio' %}class="active"{% endif %}>PORTFOLIO</a></li>
-                    <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'index' %}#testimonials-section">TESTIMONIALS</a></li>
-                    <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'clients' %}" {% if request.resolver_match.url_name == 'clients' %}class="active"{% endif %}>CLIENTS/PARTNERS</a></li>
-                    <li class="py-2 text-center lg:py-0 uppercase"><a href="#" id="contactLink">Contact</a></li>
-                </ul>   
-            </nav>
+                <div class="grid grid-flow-col grid-cols-1 lg:grid-cols-9 justify-items-center lg:justify-items-stretch">
+                    <a href="{% url 'index' %}" class="mb-1 inset-x-0 top-0">
+                        <img src="{% static 'images/DS MEDIA.png' %}" alt="" class="object-cover bg-white h-24">
+                    </a>
+                    <ul id="menu" class="invisible col-span-8 nav-list top-0 left-0 h-full w-full main-color-bg0 text-white overflow-y-auto lg:static lg:w-auto lg:transform-none lg:bg-transparent lg:flex lg:flex-row z-40 lg:visible mt-20"> <!-- Add mt-20 (or adjust the value) -->
+                        <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'index' %}" {% if request.resolver_match.url_name == 'index' %}class="active"{% endif %}>HOME</a></li>
+                        <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'biography' %}" {% if request.resolver_match.url_name == 'biography' %}class="active"{% endif %}>BIOGRAPHY</a></li>
+                        <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'services' %}" {% if request.resolver_match.url_name == 'services' %}class="active"{% endif %}>SERVICES</a></li>
+                        <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'portfolio' %}" {% if request.resolver_match.url_name == 'portfolio' %}class="active"{% endif %}>PORTFOLIO</a></li>
+                        <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'index' %}#testimonials-section">TESTIMONIALS</a></li>
+                        <li class="py-2 text-center lg:py-0 uppercase"><a href="{% url 'clients' %}" {% if request.resolver_match.url_name == 'clients' %}class="active"{% endif %}>CLIENTS/PARTNERS</a></li>
+                        <li class="py-2 text-center lg:py-0 uppercase"><a href="#" id="contactLink">Contact</a></li>
+                    </ul>
+                </div> 
+        </nav>
+        
 
         <main class="flex-grow lg:mt-[75px]">
             {% include 'core/partials/messages.html' %}  
@@ -78,6 +79,7 @@
             <div class="lg:w-1/4 gray-color">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur odit quaerat explicabo tempore quas placeat harum! Repudiandae unde numquam sapiente atque perspiciatis deserunt natus non, est esse maxime mollitia tempore.</div>
             <div class="lg:w-1/4 gray-color uppercase">Follow
                 <div class="p-6 space-y-6 mt-6">
+
                     <div class="gray-color underline underline-offset-8">
                         <a href="#" class="transition-all duration-500 hover:text-pink-200">
                             Facebook
@@ -105,7 +107,7 @@
                 </div>
             </div>
         </div>
-        <div class="gray-color border-t m-6 p-4">Copywrite</div>
+        <div class="gray-color text-center border-t m-6 p-4">Copywrite</div>
     </footer>
 
     <!-- LinkedIn Element -->
@@ -160,23 +162,22 @@
             function toggleMenu() {
                 var menu = document.getElementById('menu');
                 var hamburger = document.getElementById('menuToggle');
-                            
+                        
                 if (menu.classList.contains('invisible')) {
                     menu.classList.remove('invisible');
-                    menu.classList.add('active'); // Add the active class to the menu
-                    hamburger.classList.add('active'); // Add the active class to the hamburger
+                    menu.style.transform = "translateX(0%)";
+                    hamburger.classList.add('active');
                 } else {
-                    hamburger.classList.remove('active'); // Remove the active class from the hamburger
+                    hamburger.classList.remove('active');
+                    menu.style.transform = "translateX(-100%)";
                     setTimeout(function() {
                         menu.classList.add('invisible');
-                        menu.classList.remove('active'); // Remove the active class from the menu
-                    }, 500);
+                    }, 1000);
                 }
             }
-
+        
             document.getElementById('menuToggle').addEventListener('click', toggleMenu);
-
-            </script>
+        </script>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 // Initialize AOS
